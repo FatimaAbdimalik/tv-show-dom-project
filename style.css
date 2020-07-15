@@ -1,3 +1,7 @@
+* {
+  margin: 0px;
+}
+
 #root {
   color: black;
 }
@@ -8,17 +12,33 @@
   text-align: center;
   border-radius: 15px;
   background-color: aliceblue;
+  margin-top: 2rem;
   padding: 10px 10px 10px 10px;
 }
 .position {
   display: flex;
 }
+#input {
+  margin-left: 6rem;
+  margin-top: 2rem;
+
+  width: 20rem;
+  height: 2rem;
+}
 .side {
-  margin-left: 10px;
+  margin-left: 15rem;
+  margin-top: 2.5rem;
 }
 #cardContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 50px;
+}
+#episodes {
+  margin-top: 2rem;
+  margin-left: 2rem;
+
+  width: 20rem;
+  height: 2rem;
 }

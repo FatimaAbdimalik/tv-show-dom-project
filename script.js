@@ -23,8 +23,9 @@ function makePageForEpisodes(episodeList) {
     titleDiv.style.borderRadius = "15px";
     titleDiv.style.width = "20rem";
     Div.style.width = "20rem";
-    Div.style.height = "30rem";
+    Div.style.height = "23rem";
     Div.style.marginTop = "50px";
+    Div.style.marginLeft = "22px";
     Div.style.marginBottom = "50px";
     Div.style.backgroundColor = "white";
     Div.style.padding = "5px 5px 10px 10px";
@@ -58,12 +59,13 @@ function findValue() {
     (ep.name + ep.summary).toLowerCase().includes(values)
   );
   makePageForEpisodes(episodes);
-  let num = allEpisodes.filter((item) =>
-    // console.log(`Displaying ${num}/73 episodes`);
-    (item.name + item.summary).toLowerCase().includes(values)
-  ).length;
-  console.log(`Displaying ${num}/73 episodes`);
-  return (displayNum.innerHTML = `Displaying ${num}/73 episodes`);
+  console.log(`Displaying ${episodes.length}/73 episodes`);
+  return (displayNum.innerHTML = `Displaying ${episodes.length}/73 episodes`);
 }
+// level 300
+// make a function that takes all season and name;
+// push to an array
+// change options to match the season name
+// once selected, page only load the selected one
 
 window.onload = setup;
