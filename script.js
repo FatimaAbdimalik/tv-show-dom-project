@@ -11,6 +11,7 @@ function setup() {
 }
 
 function makePageForEpisodes(episodeList) {
+  cardContainer.innerHTML = "";
   // create a div card first then the rest then appenchild the rest
   episodeList.forEach((element) => {
     let Div = document.createElement("div");
@@ -45,8 +46,8 @@ function makePageForEpisodes(episodeList) {
     Div.appendChild(epSummary);
   });
   // level 200
-  let inputfield = document.getElementById("input");
-  inputfield.addEventListener("keyup", findValue);
+  // let inputfield = document.getElementById("input");
+  // inputfield.addEventListener("keyup", findValue);
   // console.log(value);
 
   function findValue() {
@@ -56,13 +57,30 @@ function makePageForEpisodes(episodeList) {
     //   .toLowerCase()
     //   .includes(values);
     // Div.appendChild(episodes);
-    let num = episodeList.filter((item) =>
-      // console.log(`Displaying ${num}/73 episodes`);
-      (item.name + item.summary).toLowerCase().includes(values)
-    ).length;
-    console.log(`Displaying ${num}/73 episodes`);
-    return `Displaying ${num}/73 episodes`;
+    // let num = episodeList.filter((item) =>
+    //   // console.log(`Displaying ${num}/73 episodes`);
+    //   (item.name + item.summary).toLowerCase().includes(values)
+    // ).length;
+    // console.log(`Displaying ${num}/73 episodes`);
+    // return `Displaying ${num}/73 episodes`;
   }
+}
+// level 200
+let inputfield = document.getElementById("input");
+inputfield.addEventListener("keyup", findValue);
+
+function findValue() {
+  let values = inputfield.value.toLowerCase();
+  let episodes = allEpisodes.filter((ep) =>
+    (ep.name + ep.summary).toLowerCase().includes(values)
+  );
+  makePageForEpisodes(episodes);
+  // let num = allEpisodes.filter((item) =>
+  //   // console.log(`Displaying ${num}/73 episodes`);
+  //   (item.name + item.summary).toLowerCase().includes(values)
+  // ).length;
+  // console.log(`Displaying ${num}/73 episodes`);
+  // return `Displaying ${num}/73 episodes`;
 }
 
 window.onload = setup;
