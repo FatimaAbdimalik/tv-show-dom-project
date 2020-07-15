@@ -10,6 +10,12 @@
   background-color: aliceblue;
   padding: 10px 10px 10px 10px;
 }
+.position {
+  display: flex;
+}
+.side {
+  margin-left: 10px;
+}
 #cardContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

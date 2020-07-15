@@ -4,14 +4,16 @@ let body = document.getElementById("background");
 body.style.backgroundColor = "#D3D3D3";
 const cardContainer = document.getElementById("cardContainer");
 const rootElem = document.getElementById("root");
+const displayNum = document.getElementById("display");
 
 function setup() {
-  // const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 }
 
 function makePageForEpisodes(episodeList) {
   cardContainer.innerHTML = "";
+  let numOfEp = episodeList.length;
+  displayNum.innerHTML = `Displaying ${numOfEp}/73 episodes`;
   // create a div card first then the rest then appenchild the rest
   episodeList.forEach((element) => {
     let Div = document.createElement("div");
@@ -45,25 +47,6 @@ function makePageForEpisodes(episodeList) {
     Div.appendChild(epImage);
     Div.appendChild(epSummary);
   });
-  // level 200
-  // let inputfield = document.getElementById("input");
-  // inputfield.addEventListener("keyup", findValue);
-  // console.log(value);
-
-  function findValue() {
-    let values = inputfield.value.toLowerCase();
-    // let episodes = allEpisodes
-    //   .filter((ep) => ep.name + ep.summary)
-    //   .toLowerCase()
-    //   .includes(values);
-    // Div.appendChild(episodes);
-    // let num = episodeList.filter((item) =>
-    //   // console.log(`Displaying ${num}/73 episodes`);
-    //   (item.name + item.summary).toLowerCase().includes(values)
-    // ).length;
-    // console.log(`Displaying ${num}/73 episodes`);
-    // return `Displaying ${num}/73 episodes`;
-  }
 }
 // level 200
 let inputfield = document.getElementById("input");
@@ -75,12 +58,12 @@ function findValue() {
     (ep.name + ep.summary).toLowerCase().includes(values)
   );
   makePageForEpisodes(episodes);
-  // let num = allEpisodes.filter((item) =>
-  //   // console.log(`Displaying ${num}/73 episodes`);
-  //   (item.name + item.summary).toLowerCase().includes(values)
-  // ).length;
-  // console.log(`Displaying ${num}/73 episodes`);
-  // return `Displaying ${num}/73 episodes`;
+  let num = allEpisodes.filter((item) =>
+    // console.log(`Displaying ${num}/73 episodes`);
+    (item.name + item.summary).toLowerCase().includes(values)
+  ).length;
+  console.log(`Displaying ${num}/73 episodes`);
+  return (displayNum.innerHTML = `Displaying ${num}/73 episodes`);
 }
 
 window.onload = setup;
