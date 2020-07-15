@@ -1,11 +1,12 @@
 //You can edit ALL of the code here
+const allEpisodes = getAllEpisodes();
 let body = document.getElementById("background");
 body.style.backgroundColor = "#D3D3D3";
 const cardContainer = document.getElementById("cardContainer");
 const rootElem = document.getElementById("root");
 
 function setup() {
-  const allEpisodes = getAllEpisodes();
+  // const allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes);
 }
 
@@ -47,30 +48,21 @@ function makePageForEpisodes(episodeList) {
   let inputfield = document.getElementById("input");
   inputfield.addEventListener("keyup", findValue);
   // console.log(value);
-  let text = document.createElement("p");
-  inputfield.appendChild(text);
 
   function findValue() {
-    let value = inputfield.value.toLowerCase();
-    let episodes = episodeList
-      .filter((ep) => ep.name + ep.summary)
-      .toLowerCase()
-      .includes(value);
-    Div.appendChild(episodes);
+    let values = inputfield.value.toLowerCase();
+    // let episodes = allEpisodes
+    //   .filter((ep) => ep.name + ep.summary)
+    //   .toLowerCase()
+    //   .includes(values);
+    // Div.appendChild(episodes);
     let num = episodeList.filter((item) =>
-      (item.name + item.summary).toLowerCase().includes(value)
+      // console.log(`Displaying ${num}/73 episodes`);
+      (item.name + item.summary).toLowerCase().includes(values)
     ).length;
     console.log(`Displaying ${num}/73 episodes`);
-    // let text = document.createElement("p");
-    // inputfield.appendChild(text);
-
-    return (text.innerHTML = `Displaying ${num}/73 episodes`);
+    return `Displaying ${num}/73 episodes`;
   }
-  // function livesearch() {
-  //   let textInput = element.name;
-  //   textInput.filter(letter=> inputfield.includes(letter))
-  //   return
-  // }
 }
 
 window.onload = setup;
