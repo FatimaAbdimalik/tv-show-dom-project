@@ -73,4 +73,19 @@ data
     option.innerHTML = item;
     select.appendChild(option);
   });
+
+// while()
+
+// add eventlistener, when click only card matches name shows
+select.addEventListener("change", selectEpisode);
+function selectEpisode() {
+  //   let value = event.target.value;
+  //   console.log(value);
+  //   // let epAndSeason = allEpisodes.map(
+  //   //   (item) => `S${item.season}E0${item.number} - ${item.name}`
+  //   // );
+  //   // if (value === epAndSeason) {
+  //   //   makePageForEpisodes(selectEpisode);
+  //   // }
+}
 window.onload = setup;
