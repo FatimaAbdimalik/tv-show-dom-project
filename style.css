@@ -38,7 +38,7 @@
 #episodes {
   margin-top: 2rem;
   margin-left: 2rem;
-
+  overflow: scroll;
   width: 20rem;
   height: 2rem;
 }

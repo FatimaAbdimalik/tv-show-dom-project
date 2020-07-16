@@ -63,24 +63,14 @@ function findValue() {
   return (displayNum.innerHTML = `Displaying ${episodes.length}/73 episodes`);
 }
 // level 300
-// make a function that takes all season and name;
-// push to an array // map will store it as an array
-// change options to match the season name // loop forEach and assign option
-// once selected, page only load the selected one
-// event listen that listen to click and allows all list to dropdown
-// while loop to assig and appen all options
 
 let select = document.getElementById("episodes");
-select.addEventListener("mouseover", convertOption);
-console.log(select);
-function convertOption() {
-  let data = allEpisodes
-    .map((p) => `S${p.season}E0${p.number}-${p.name}`)
-    .forEach((item) => {
-      let option = document.createElement("option");
-      option.innerHTML = item;
-      select.appendChild(option);
-    });
-}
-// convertOption();
+let data = allEpisodes;
+data
+  .map((p) => `S${p.season}E0${p.number} - ${p.name}`)
+  .forEach((item) => {
+    let option = document.createElement("option");
+    option.innerHTML = item;
+    select.appendChild(option);
+  });
 window.onload = setup;
