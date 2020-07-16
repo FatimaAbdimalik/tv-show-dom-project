@@ -64,8 +64,20 @@ function findValue() {
 }
 // level 300
 // make a function that takes all season and name;
-// push to an array
-// change options to match the season name
+// push to an array // map will store it as an array
+// change options to match the season name // loop forEach and assign option
 // once selected, page only load the selected one
+// event listen that listen to click and allows all list to dropdown
+// while loop to assig and appen all options
+let select = document.getElementById("episodes");
+console.log(select);
+function convertOption() {
+  let data = allEpisodes.map((p) => `S${p.season}E0${p.number}-${p.name}`);
+  console.log(data);
 
+  let option = document.createElement("option");
+  option.innerHTML = data[0];
+  select.appendChild(option);
+}
+convertOption();
 window.onload = setup;
