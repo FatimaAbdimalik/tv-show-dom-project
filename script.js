@@ -69,7 +69,9 @@ function findValue() {
 // once selected, page only load the selected one
 // event listen that listen to click and allows all list to dropdown
 // while loop to assig and appen all options
+
 let select = document.getElementById("episodes");
+select.addEventListener("mouseover", convertOption);
 console.log(select);
 function convertOption() {
   let data = allEpisodes
@@ -79,7 +81,6 @@ function convertOption() {
       option.innerHTML = item;
       select.appendChild(option);
     });
-  console.log(data);
 }
-convertOption();
+// convertOption();
 window.onload = setup;
