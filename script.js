@@ -72,12 +72,14 @@ function findValue() {
 let select = document.getElementById("episodes");
 console.log(select);
 function convertOption() {
-  let data = allEpisodes.map((p) => `S${p.season}E0${p.number}-${p.name}`);
+  let data = allEpisodes
+    .map((p) => `S${p.season}E0${p.number}-${p.name}`)
+    .forEach((item) => {
+      let option = document.createElement("option");
+      option.innerHTML = item;
+      select.appendChild(option);
+    });
   console.log(data);
-
-  let option = document.createElement("option");
-  option.innerHTML = data[0];
-  select.appendChild(option);
 }
 convertOption();
 window.onload = setup;
