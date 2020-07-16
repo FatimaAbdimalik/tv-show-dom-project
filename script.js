@@ -52,7 +52,6 @@ function makePageForEpisodes(episodeList) {
 // level 200
 let inputfield = document.getElementById("input");
 inputfield.addEventListener("keyup", findValue);
-
 function findValue() {
   let values = inputfield.value.toLowerCase();
   let episodes = allEpisodes.filter((ep) =>
@@ -63,7 +62,6 @@ function findValue() {
   return (displayNum.innerHTML = `Displaying ${episodes.length}/73 episodes`);
 }
 // level 300
-
 let select = document.getElementById("episodes");
 let data = allEpisodes;
 data
@@ -79,13 +77,10 @@ data
 // add eventlistener, when click only card matches name shows
 select.addEventListener("change", selectEpisode);
 function selectEpisode() {
-  //   let value = event.target.value;
-  //   console.log(value);
-  //   // let epAndSeason = allEpisodes.map(
-  //   //   (item) => `S${item.season}E0${item.number} - ${item.name}`
-  //   // );
-  //   // if (value === epAndSeason) {
-  //   //   makePageForEpisodes(selectEpisode);
-  //   // }
+  let valueOfSele = select.value;
+  console.log(valueOfSele);
+  let selectedEp = allEpisodes.filter((ep) => valueOfSele.includes(ep.name));
+  console.log(selectedEp);
+  makePageForEpisodes(selectedEp);
 }
 window.onload = setup;
