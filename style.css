@@ -31,8 +31,8 @@
 }
 #cardContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-gap: 50px;
 }
 #episodes {
@@ -41,4 +41,12 @@
   overflow: scroll;
   width: 20rem;
   height: 2rem;
+}
+@media (min-width: 600px) {
+  #root #cardContainer {
+    grid-template-rows: repeat(2, 1fr);
+  }
+  #body {
+    background-color: palevioletred;
+  }
 }

@@ -79,8 +79,16 @@ select.addEventListener("change", selectEpisode);
 function selectEpisode() {
   let valueOfSele = select.value;
   console.log(valueOfSele);
+
+  // if selectedEp show ep or show all
   let selectedEp = allEpisodes.filter((ep) => valueOfSele.includes(ep.name));
   console.log(selectedEp);
-  makePageForEpisodes(selectedEp);
+
+  //? makePageForEpisodes(al)
+  if (valueOfSele === "all") {
+    makePageForEpisodes(allEpisodes);
+  } else {
+    makePageForEpisodes(selectedEp);
+  }
 }
 window.onload = setup;
