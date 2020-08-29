@@ -19,7 +19,7 @@
   display: flex;
 }
 #input {
-  margin-left: 6rem;
+  margin-left: 9rem;
   margin-top: 2rem;
 
   width: 20rem;
@@ -42,29 +42,47 @@
   width: 20rem;
   height: 2rem;
 }
-@media (max-width: 780px) {
+@media (max-width: 980px) {
   #root #cardContainer {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
+
   #body {
     background-color: palevioletred;
   }
-  /* @media (min-width: 960px) {
-    #root #cardContainer {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  } */
+
   .position {
     display: flex;
     flex-direction: column;
+    margin-left: 18rem;
   }
   #episodes {
-    margin-left: 5px;
+    margin-left: 10px;
   }
+
   #input {
-    margin-left: 5px;
+    margin-left: 10px;
   }
   .side {
+    margin-left: 15px;
+  }
+}
+@media (max-width: 550px) {
+  #root #cardContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .position {
+    display: flex;
+    flex-direction: column;
     margin-left: 10px;
+  }
+  #episodes {
+    margin-left: 10px;
+  }
+  #input {
+    margin-left: 10px;
+  }
+  .side {
+    margin-left: 15px;
   }
 }

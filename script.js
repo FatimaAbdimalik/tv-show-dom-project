@@ -25,12 +25,12 @@ function makePageForEpisodes(episodeList) {
     titleDiv.style.marginBottom = "10px";
     titleDiv.style.marginTop = "10px";
     titleDiv.style.textAlign = "center";
-    titleDiv.style.paddingTop = "5px";
-    titleDiv.style.paddingBottom = "5px";
+    titleDiv.style.paddingTop = "8px";
+    titleDiv.style.paddingBottom = "8px";
     Div.style.width = "20rem";
-    Div.style.height = "23rem";
+    Div.style.height = "24rem";
     Div.style.marginTop = "50px";
-    Div.style.marginLeft = "22px";
+    Div.style.marginLeft = "35px";
     Div.style.marginBottom = "50px";
     Div.style.backgroundColor = "white";
     Div.style.padding = "5px 10px 10px";
