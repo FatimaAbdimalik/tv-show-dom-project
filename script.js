@@ -17,6 +17,7 @@ function makePageForEpisodes(episodeList) {
   // create a div card first then the rest then appenchild the rest
   episodeList.forEach((element) => {
     let Div = document.createElement("div");
+    Div.className = "card";
     let titleDiv = document.createElement("div");
     titleDiv.style.backgroundColor = "white";
     titleDiv.style.border = "2px solid black";
@@ -27,33 +28,33 @@ function makePageForEpisodes(episodeList) {
     titleDiv.style.textAlign = "center";
     titleDiv.style.paddingTop = "8px";
     titleDiv.style.paddingBottom = "8px";
-    Div.style.width = "20rem";
-    Div.style.height = "24rem";
-    Div.style.marginTop = "50px";
-    Div.style.marginLeft = "35px";
-    Div.style.marginBottom = "50px";
-    Div.style.backgroundColor = "white";
-    Div.style.padding = "5px 10px 10px";
-    Div.style.borderRadius = "15px";
-    Div.style.border = "10px solid black";
+    // Div.style.width = "20rem";
+    // Div.style.height = "24rem";
+    // Div.style.marginTop = "50px";
+    // Div.style.marginLeft = "35px";
+    // Div.style.marginBottom = "50px";
+    // Div.style.backgroundColor = "white";
+    // Div.style.padding = "5px 10px 10px";
+    // Div.style.borderRadius = "15px";
+    // Div.style.border = "10px solid black";
     let epsName = document.createElement("h4");
-    let epSeasonNum = document.createElement("p");
-    let epNum = document.createElement("p");
     let epSummary = document.createElement("p");
     let epImage = document.createElement("img");
-    epsName.textContent = `${element.name}-S0${element.season}E0${element.number}`;
-
+    epsName.textContent = `${element.name}-S${addPad(element.season)}E${addPad(
+      element.number
+    )}`;
     epSummary.innerHTML = element.summary;
     epImage.src = element.image.medium;
     rootElem.appendChild(cardContainer);
     cardContainer.appendChild(Div);
     Div.appendChild(titleDiv);
     titleDiv.appendChild(epsName);
-    titleDiv.appendChild(epSeasonNum);
-    titleDiv.appendChild(epNum);
     Div.appendChild(epImage);
     Div.appendChild(epSummary);
   });
+}
+function addPad(n) {
+  return n < 10 ? n.toString().padStart(2, "0") : n.toString();
 }
 // level 200
 let inputfield = document.getElementById("input");
@@ -71,26 +72,21 @@ function findValue() {
 let select = document.getElementById("episodes");
 let data = allEpisodes;
 data
-  .map((p) => `S${p.season}E0${p.number} - ${p.name}`)
+  .map((p) => `S${addPad(p.season)}E${addPad(p.number)} - ${p.name}`)
   .forEach((item) => {
     let option = document.createElement("option");
     option.innerHTML = item;
     select.appendChild(option);
   });
 
-// while()
-
-// add eventlistener, when click only card matches name shows
 select.addEventListener("change", selectEpisode);
 function selectEpisode() {
   let valueOfSele = select.value;
   console.log(valueOfSele);
 
-  // if selectedEp show ep or show all
   let selectedEp = allEpisodes.filter((ep) => valueOfSele.includes(ep.name));
   console.log(selectedEp);
 
-  //? makePageForEpisodes(al)
   if (valueOfSele === "all") {
     makePageForEpisodes(allEpisodes);
   } else {
