@@ -17,7 +17,7 @@ function setup() {
 function makePageForEpisodes(episodeList) {
   cardContainer.innerHTML = "";
   let numOfEp = episodeList.length;
-  displayNum.innerHTML = `Displaying ${numOfEp}/${numOfEp} episodes`;
+  displayNum.innerHTML = `Displaying ${numOfEp}/73 episodes`;
   // create a div card first then the rest then appenchild the rest
   episodeList.forEach((element) => {
     let Div = document.createElement("div");
