@@ -87,7 +87,6 @@ function selectEpisode() {
   let valueOfSele = select.value;
   console.log(valueOfSele);
   let selectedEp = data.filter((ep) => ep.id == valueOfSele);
-  // console.log(selectedEp);
 
   if (valueOfSele === "all") {
     makePageForEpisodes(data);
