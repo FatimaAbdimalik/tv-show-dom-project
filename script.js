@@ -31,10 +31,9 @@ function createShowSelector() {
     option.innerHTML = item.name;
     showSelector.appendChild(option);
   });
-  // console.log(showSelector);
 }
 
-/**********pick a show, change page to choosen show's episodes, create an eventlister that does the fectch and call it main function**********/
+/**********pick a show, change page to choosen show's episodes, create an eventlister that does the fectch and call it in main function**********/
 showSelector.addEventListener("change", fetchShow);
 
 function fetchShow() {
@@ -46,8 +45,8 @@ function fetchShow() {
   fetch(`https://api.tvmaze.com/shows/${choosenShow}/episodes`)
     .then((res) => res.json())
     .then((data) => {
-      console.log;
-      makePageForEpisodes(data);
+      allEpisodes = data;
+      makePageForEpisodes(allEpisodes);
     });
 }
 function setup() {
@@ -62,7 +61,7 @@ function setup() {
 function makePageForEpisodes(episodeList) {
   cardContainer.innerHTML = "";
   let numOfEp = episodeList.length;
-  displayNum.innerHTML = `Displaying ${numOfEp}/73 episodes`;
+  displayNum.innerHTML = `Displaying ${numOfEp}/${allEpisodes.length} episodes`;
   // create a div card first then the rest then appenchild the rest
   episodeList.forEach((element) => {
     let Div = document.createElement("div");
@@ -76,7 +75,9 @@ function makePageForEpisodes(episodeList) {
       element.number
     )}`;
     epSummary.innerHTML = element.summary;
-    epImage.src = element.image.medium;
+    let subtituteImage =
+      "https://pbs.twimg.com/profile_images/600060188872155136/st4Sp6Aw_200x200.jpg";
+    epImage.src = element.image ? element.image.medium : subtituteImage;
     rootElem.appendChild(cardContainer);
     cardContainer.appendChild(Div);
     Div.appendChild(titleDiv);
