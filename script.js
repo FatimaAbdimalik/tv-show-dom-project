@@ -23,15 +23,7 @@ function makePageForEpisodes(episodeList) {
     let Div = document.createElement("div");
     Div.className = "card";
     let titleDiv = document.createElement("div");
-    titleDiv.style.backgroundColor = "white";
-    titleDiv.style.border = "2px solid black";
-    titleDiv.style.borderRadius = "1px";
-    titleDiv.style.width = "20rem";
-    titleDiv.style.marginBottom = "10px";
-    titleDiv.style.marginTop = "10px";
-    titleDiv.style.textAlign = "center";
-    titleDiv.style.paddingTop = "8px";
-    titleDiv.style.paddingBottom = "8px";
+    titleDiv.className = "headerCard";
     let epsName = document.createElement("h4");
     let epSummary = document.createElement("p");
     let epImage = document.createElement("img");
