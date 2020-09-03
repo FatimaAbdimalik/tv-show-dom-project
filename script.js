@@ -5,6 +5,35 @@ const rootElem = document.getElementById("root");
 const displayNum = document.getElementById("display");
 let allEpisodes = [];
 let pickAnEpisode = getAllEpisodes();
+const allShow = getAllShows();
+const showSelector = document.getElementById("show");
+//*******Alphabetical sorting of shows */
+function compare(a, b) {
+  if (a.name < b.name) {
+    return -1;
+  }
+  if (a.name > b.name) {
+    return 1;
+  }
+  // a must be equal to b
+  return 0;
+}
+
+const sortedShows = allShow.sort(compare);
+
+///****Show selector creation */
+// showSelector.addEventListener("change",createShowSelector)
+
+function createShowSelector() {
+  sortedShows.forEach((item) => {
+    let option = document.createElement("option");
+    option.value = item.id;
+    option.innerHTML = item.name;
+    showSelector.appendChild(option);
+  });
+  console.log(selectShow);
+}
+
 function setup() {
   console.log("from setup");
   fetch("https://api.tvmaze.com/shows/82/episodes")
@@ -13,6 +42,7 @@ function setup() {
       allEpisodes = data;
       makePageForEpisodes(allEpisodes);
     });
+  createShowSelector();
 }
 function makePageForEpisodes(episodeList) {
   cardContainer.innerHTML = "";

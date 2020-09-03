@@ -71,15 +71,20 @@
   display: flex;
 }
 #input {
-  margin-left: 9rem;
+  margin-left: 5rem;
   margin-top: 2rem;
 
   width: 20rem;
   height: 2rem;
 }
 .side {
-  margin-left: 13rem;
+  margin-left: 5rem;
   margin-top: 2.5rem;
+}
+#show {
+  margin-top: 2rem;
+  margin-left: 1rem;
+  height: 2rem;
 }
 #cardContainer {
   display: grid;
@@ -89,7 +94,7 @@
 }
 #episodes {
   margin-top: 2rem;
-  margin-left: 2rem;
+  margin-left: 4rem;
   overflow: scroll;
   width: 20rem;
   height: 2rem;
