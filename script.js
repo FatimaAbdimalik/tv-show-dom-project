@@ -31,11 +31,26 @@ function createShowSelector() {
     option.innerHTML = item.name;
     showSelector.appendChild(option);
   });
-  console.log(selectShow);
+  // console.log(showSelector);
 }
 
+/**********pick a show, change page to choosen show's episodes, create an eventlister that does the fectch and call it main function**********/
+showSelector.addEventListener("change", fetchShow);
+
+function fetchShow() {
+  let selecVal = showSelector.value;
+  let choosenShow = sortedShows
+    .filter((show) => show.id == selecVal)
+    .map((p) => p.id)
+    .toString();
+  fetch(`https://api.tvmaze.com/shows/${choosenShow}/episodes`)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log;
+      makePageForEpisodes(data);
+    });
+}
 function setup() {
-  console.log("from setup");
   fetch("https://api.tvmaze.com/shows/82/episodes")
     .then((res) => res.json())
     .then((data) => {
