@@ -6,6 +6,7 @@ const displayNum = document.getElementById("display");
 let allEpisodes = [];
 let pickAnEpisode = getAllEpisodes();
 const allShow = getAllShows();
+let showEpidoes = [];
 const showSelector = document.getElementById("show");
 //*******Alphabetical sorting of shows */
 function compare(a, b) {
@@ -22,7 +23,6 @@ function compare(a, b) {
 const sortedShows = allShow.sort(compare);
 
 ///****Show selector creation */
-// showSelector.addEventListener("change",createShowSelector)
 
 function createShowSelector() {
   sortedShows.forEach((item) => {
@@ -47,6 +47,9 @@ function fetchShow() {
     .then((data) => {
       allEpisodes = data;
       makePageForEpisodes(allEpisodes);
+      createEpSelector(allEpisodes);
+      showEpidoes = data;
+      console.log(showEpidoes);
     });
 }
 function setup() {
@@ -55,11 +58,14 @@ function setup() {
     .then((data) => {
       allEpisodes = data;
       makePageForEpisodes(allEpisodes);
+      createEpSelector(allEpisodes);
     });
   createShowSelector();
 }
 function makePageForEpisodes(episodeList) {
   cardContainer.innerHTML = "";
+  showEpidoes = episodeList;
+  console.log(showEpidoes);
   let numOfEp = episodeList.length;
   displayNum.innerHTML = `Displaying ${numOfEp}/${allEpisodes.length} episodes`;
   // create a div card first then the rest then appenchild the rest
@@ -104,32 +110,39 @@ function findValue() {
   //   console.log(`episodes from episodes, ${episodes}`);
   //   values.style.color = "yellow";
   // }
-  return (displayNum.innerHTML = `Displaying ${episodes.length}/73 episodes`);
+  return (displayNum.innerHTML = `Displaying ${episodes.length}/ ${allEpisodes.length} episodes`);
 }
 // level 300
-let select = document.getElementById("episodes");
-let data = pickAnEpisode;
-data.forEach((item) => {
-  let option = document.createElement("option");
-  option.value = item.id;
-  option.innerHTML = `S${addPad(item.season)}E${addPad(item.number)} - ${
-    item.name
-  }`;
-  select.appendChild(option);
-});
-console.log(select);
-console.log(data);
+function createEpSelector(data) {
+  let select = document.getElementById("episodes");
+  // let data = pickAnEpisode;
+  // let data = showEpidoes;
+  select.innerHTML = "";
+  select.innerHTML = '<option value="all">Select An Episode</option></select>';
 
-select.addEventListener("change", selectEpisode);
-function selectEpisode() {
-  let valueOfSele = select.value;
-  console.log(valueOfSele);
-  let selectedEp = data.filter((ep) => ep.id == valueOfSele);
+  console.log(data);
+  data.forEach((item) => {
+    let option = document.createElement("option");
+    option.value = item.id;
+    option.innerHTML = `S${addPad(item.season)}E${addPad(item.number)} - ${
+      item.name
+    }`;
+    select.appendChild(option);
+  });
+  // console.log(select);
+  // console.log(data);
 
-  if (valueOfSele === "all") {
-    makePageForEpisodes(data);
-  } else {
-    makePageForEpisodes(selectedEp);
+  select.addEventListener("change", selectEpisode);
+  function selectEpisode() {
+    let valueOfSele = select.value;
+    console.log(valueOfSele);
+    let selectedEp = data.filter((ep) => ep.id == valueOfSele);
+
+    if (valueOfSele === "all") {
+      makePageForEpisodes(data);
+    } else {
+      makePageForEpisodes(selectedEp);
+    }
   }
 }
 window.onload = setup;

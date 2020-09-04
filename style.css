@@ -20,6 +20,8 @@
   border-radius: 12px;
   box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.1);
   transition: 0.2s ease;
+  overflow: auto;
+  cursor: pointer;
 }
 .card img {
   display: block;
