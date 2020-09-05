@@ -3,19 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | My Name (My GitHub username)</title>
+    <title>TV Show Project | Fatima (FatimaAbdimalik)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merienda&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Modak&family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Indie+Flower&family=Modak&family=Patrick+Hand&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
-  <body>
+  <body id="background">
     <div id="root">
+      <h1 class="title">TV SHOWS</h1>
+      <div class="position">
+        <select id="show">
+          <option>Select A Series</option>
+        </select>
+        <select id="episodes">
+          <option value="all">Select An Episode</option>
+        </select>
+
+        <input
+          id="input"
+          type="search"
+          value=""
+          placeholder="Do your episodes search here"
+        />
+        <p id="display" class="side"></p>
+      </div>
+
+      <div id="cardContainer"></div>
     </div>
 
     <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
+    <div>This comes from tvMaze</div>
     <script src="episodes.js"></script>
 
     <!-- Loads YOUR javascript code -->
+    <script src="shows.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
